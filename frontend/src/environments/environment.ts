@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  hostname: 'http://localhost:4200',
+  authority: 'http://192.168.99.100:8180/auth/realms/sample-realm',
+  client_id: 'cas-app'
 };
 
 /*

@@ -1,0 +1,13 @@
+version: '3'
+services:
+  keycloak:
+    image: jboss/keycloak
+    environment:
+      KEYCLOAK_USER: admin
+      KEYCLOAK_PASSWORD: admin
+      KEYCLOAK_IMPORT: /data/sample-realm.json
+    ports:
+      - 8180:8080
+      - 8543:8443
+    volumes:
+      - ${USERPROFILE}/.docker/cas-app/keycloak:/data
