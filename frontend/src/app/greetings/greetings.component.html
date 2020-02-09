@@ -1,0 +1,9 @@
+<p>hello works!</p>
+<div class="row">
+  <div class="col-sm">
+    <form (ngSubmit)="greet()">
+      <button type="submit" class="btn btn-primary">Greet backend</button>
+    </form>
+    <div *ngIf="message">Backend answered {{ message }}</div>
+  </div>
+</div>

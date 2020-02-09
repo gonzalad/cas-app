@@ -142,7 +142,7 @@ export class AuthService {
   }
 
   isSecurityEnabled(): Observable<boolean> {
-    return of(true);
+    return of(environment.security.enabled);
   }
 
   private getSettings(): Observable<any> {
