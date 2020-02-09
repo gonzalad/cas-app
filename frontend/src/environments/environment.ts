@@ -8,7 +8,7 @@ export const environment = {
   authority: 'http://192.168.99.100:8180/auth/realms/sample-realm',
   client_id: 'cas-app',
   security: {
-    enabled: false
+    enabled: true
   }
 };
 

@@ -89,9 +89,12 @@ export class AuthService {
    * Called only when popup is disabled at the end of oidc implicit flow
    */
   completeAuthentication(): Observable<void> {
-    let result: Promise<User>;
-    result = new UserManager({}).signinRedirectCallback();
-    return from (result.then(user => this.finishAuthenticationAndRedirect(user)));
+    return this.userManager().pipe(
+      flatMap(manager => manager.signinRedirectCallback()),
+      map(user => {
+        return this.finishAuthenticationAndRedirect(user);
+      })
+    );
   }
 
   /**
@@ -134,6 +137,7 @@ export class AuthService {
             console.log('user signed out');
           });
           // userManager.events.addSilentRenewError(e => console.log('Error during silent renew ' + e));
+          this.manager = userManager;
         })
       );
     } else {
