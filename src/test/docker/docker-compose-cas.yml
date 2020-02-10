@@ -1,0 +1,13 @@
+version: '3'
+services:
+  # console available at https://192.168.99.100:8543/cas (casuser/Mellon)
+  # see https://github.com/apereo/cas-webapp-docker
+  #
+  # Links:
+  # - https://www.zylk.net/en/web-2-0/blog/-/blogs/managing-docker-images-for-generating-production-infrastructure
+  # - https://apereo.github.io/2018/11/09/cas6-docker-jib/
+  cas:
+    image: apereo/cas:v6.1.3
+    ports:
+      - 8180:8080
+      - 8543:8443
