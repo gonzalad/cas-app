@@ -56,6 +56,12 @@ export class AuthService {
     );
   }
 
+  signout(): Observable<void> {
+    return this.userManager().pipe(
+      flatMap(userManager => userManager.signoutRedirect())
+    );
+  }
+
   /**
    * accessToken nécessaire pour l'appel des services backend
    */
@@ -154,7 +160,7 @@ export class AuthService {
       authority: environment.authority,
       client_id: environment.client_id,
       redirect_uri: environment.hostname + this.redirectUri,
-      post_logout_redirect_uri: environment.hostname + this.postLogoutUri,
+      post_logout_redirect_uri: environment.hostname +  this.postLogoutUri,
       response_type: 'id_token token',
       scope: 'openid',
       silent_redirect_uri: environment.hostname + this.silentRedirectUri,

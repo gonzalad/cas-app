@@ -19,7 +19,7 @@ export class AuthSilentComponent implements OnInit {
       authority: environment.authority,
       client_id: environment.client_id,
       redirect_uri: environment.hostname + this.redirectUri,
-      post_logout_redirect_uri: environment.hostname + this.postLogoutUri,
+      post_logout_redirect_uri: environment.hostname +  this.postLogoutUri,
       response_type: 'id_token token',
       scope: 'openid',
       silent_redirect_uri: environment.hostname + this.silentRedirectUri,
